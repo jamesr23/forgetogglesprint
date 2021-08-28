@@ -1,8 +1,8 @@
-# togglesprint for forge version 1.8.9
-i made this because i needed a way to easily toggle between having togglesprint enabled and disabled; as in being able to switch between the regular sprinting mechanincs and togglesprint.  
+# togglesprint for forge version 1.12.2
+i made this because i needed a way to easily toggle between having togglesprint enabled and disabled; as in being able to switch between the regular sprinting mechanincs and togglesprint.
 the sprint key is the same  
-enable with /togglesprint enable   
-disable with /togglesprint disable   
+enable with /togglesprint enable  
+disable with /togglesprint disable  
 toggle with /togglesprint or /togglesprint toggle  
 aliases: /ts  
 
