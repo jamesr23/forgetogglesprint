@@ -1,0 +1,16 @@
+[
+{
+  "modid": "togglesprint",
+  "name": "Toggle Sprint",
+  "description": "Simple togglesprint mod for forge ${mcversion}. enable with /togglesprint enable disable with /togglesprint disable.\ncommmand alias: /ts",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["jamesr"],
+  "credits": "me, myself, and i",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
