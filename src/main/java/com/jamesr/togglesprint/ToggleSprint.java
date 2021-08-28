@@ -54,3 +54,57 @@ public class ToggleSprint{
     }
    
 }
+package com.jamesr.togglesprint;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.client.ClientCommandHandler;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+
+@Mod(modid = ToggleSprint.MODID, version = ToggleSprint.VERSION)
+public class ToggleSprint{
+	
+    public static final String MODID = "togglesprint";
+    public static final String VERSION = "1.0";
+    public static boolean enabled;
+    public static boolean toggled;
+
+    private static Minecraft mc;
+
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(this);
+        ClientCommandHandler.instance.registerCommand(new ToggleSprintCommand());
+        mc = Minecraft.getMinecraft();
+        enabled = false;
+        toggled = false;
+    }
+
+    @SubscribeEvent
+    public void onTick(TickEvent.ClientTickEvent e) {
+    	
+        if (!enabled)
+        	return;
+
+        if(mc.gameSettings.keyBindSprint.isPressed()) {
+        	toggled = !toggled;
+    	
+	    	if(toggled)
+	    		mc.player.sendMessage(new TextComponentTranslation("[togglesprint] " + ChatFormatting.BLUE + "sprinting"));
+	    	else 
+	    		mc.player.sendMessage(new TextComponentTranslation("[togglesprint] " + ChatFormatting.RED + "walking"));
+    	}
+    	
+    	KeyBinding.setKeyBindState(mc.gameSettings.keyBindSprint.getKeyCode(), toggled);    	
+    	return;
+    }
+
+}
