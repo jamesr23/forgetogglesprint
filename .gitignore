@@ -3,6 +3,7 @@
 eclipse
 run
 bin
+build
 
 **/build/
 !src/**/build/
