@@ -15,3 +15,8 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+# eclipse
+.project
+.classpath
+.settings
